@@ -28,12 +28,12 @@ if(!ObjectID.isValid(userID)){
 // 	console.log('Todo: ', todo);
 // });
 
-// Todo.findById(id).then((todo) => {
-// 	if(!todo){
-// 		return console.log('id not found');
-// 	}
-// 	console.log('Todo By Id: ', todo);
-// }).catch((err) => console.log(err));
+Todo.findById(id).then((todo) => {
+	if(!todo){
+		return console.log('id not found');
+	}
+	console.log('Todo By Id: ', todo);
+}).catch((err) => console.log(err));
 
 
 
