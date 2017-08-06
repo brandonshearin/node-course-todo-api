@@ -1,3 +1,4 @@
+require('./config/config.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
@@ -9,7 +10,7 @@ var {User} = require('./models/user');
 
 var app = express();
 //if PORT is defined  express uses that variable, if not then localhost 3000
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 
 app.use(bodyParser.json());
@@ -66,7 +67,7 @@ app.delete('/todos/:id', (req, res) => {
 app.patch('/todos/:id', (req, res) => {
 	var id = req.params.id;
 	var body = _.pick(req.body, ['text', 'completed']);
-	
+
 	if(!ObjectID.isValid(id)){
 		return res.status(404).send();
 	}
